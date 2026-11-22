@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <meta name="description" content="Analyse architecturale de la médiathèque François-Mitterrand à Poitiers.">
+    <title>Médiathèque François-Mitterrand — Adèle Bernardeau</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../project-page.css">
+  </head>
+  <body>
+    <div class="project-shell">
+      <a class="project-back" href="../../index.html">← Retour à l’accueil</a>
+      <header class="project-header">
+        <div>
+          <h1 class="project-title">La médiathèque François-Mitterrand</h1>
+          <p class="project-subtitle">Analyse architecturale · Poitiers · Projet individuel</p>
+        </div>
+        <p class="project-author">Adèle Bernardeau</p>
+      </header>
+
+      <main>
+        <section class="project-description" aria-label="Description du projet">
+          <p>
+            Étude du bâtiment conçu par Laurent Beaudouin et Sylvain Giacomazzi (1996). Le but de
+            ce projet était de réaliser une affiche qui comporte toutes les informations
+            nécessaires : contexte, composition, matériaux, espaces. Elle est complétée par une
+            maquette à l'échelle 1/1000.
+          </p>
+        </section>
+
+        <section class="carousel" data-carousel aria-label="Images du projet de la médiathèque">
+          <div class="carousel__viewport" tabindex="0" aria-label="Faire défiler les images du projet">
+            <ol class="carousel__track">
+              <li class="carousel__slide"><figure><img src="./affiche%20maquette.png" alt="Affiche de présentation de la médiathèque" loading="lazy" decoding="async"></figure></li>
+              <li class="carousel__slide"><figure><img src="./dessin%20plan%20de%20masse.png" alt="Dessin du plan de masse" loading="lazy" decoding="async"></figure></li>
+              <li class="carousel__slide"><figure><img src="./facade%20M.jpg" alt="Étude de la façade de la médiathèque" loading="lazy" decoding="async"></figure></li>
+              <li class="carousel__slide"><figure><img src="./mediatheque.jpg" alt="Vue de la médiathèque François-Mitterrand" loading="lazy" decoding="async"></figure></li>
+              <li class="carousel__slide"><figure><img src="./Plan%20de%20coupe.jpg" alt="Plan de coupe de la médiathèque" loading="lazy" decoding="async"></figure></li>
+              <li class="carousel__slide"><figure><img src="./maquette.jpg" alt="Maquette de la médiathèque à l’échelle 1/1000" loading="lazy" decoding="async"></figure></li>
+            </ol>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__button" type="button" data-previous aria-label="Images précédentes" disabled><span aria-hidden="true">←</span></button>
+            <p class="carousel__status" aria-live="polite" aria-atomic="true">1–3 / 6</p>
+            <button class="carousel__button" type="button" data-next aria-label="Images suivantes"><span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../../project-carousel.js" defer></script>
+  </body>
+</html>
