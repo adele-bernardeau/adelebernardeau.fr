@@ -32,17 +32,6 @@ body {
   pointer-events: none;
 }
 
-.portfolio-name {
-  top: 4%;
-  left: 4%;
-  font-family: "Michroma", "Eurostile", sans-serif;
-  font-size: clamp(0.8rem, 1.4vw, 1.4rem);
-  font-weight: 400;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
 .home-label {
   top: 75%;
   left: 50%;
@@ -52,6 +41,10 @@ body {
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 0.9;
+}
+
+.portfolio-name {
+  right: var(--project-content-side);
 }
 
 @media (min-aspect-ratio: 4 / 3) {
