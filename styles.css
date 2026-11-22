@@ -23,12 +23,24 @@ body {
   height: 100dvh;
 }
 
+.portfolio-name,
 .home-label {
   position: absolute;
   z-index: 1;
   margin: 0;
   color: #111;
   pointer-events: none;
+}
+
+.portfolio-name {
+  top: 4%;
+  left: 4%;
+  font-family: "Michroma", "Eurostile", sans-serif;
+  font-size: clamp(0.8rem, 1.4vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .home-label {
