@@ -64,6 +64,88 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
     }
   }
 
+  const lightbox = document.createElement("dialog");
+  lightbox.className = "project-lightbox";
+  lightbox.setAttribute("aria-label", "Images du projet en plein écran");
+
+  const closeLightboxButton = document.createElement("button");
+  closeLightboxButton.className = "project-lightbox__close";
+  closeLightboxButton.type = "button";
+  closeLightboxButton.setAttribute("aria-label", "Fermer la visionneuse");
+  closeLightboxButton.textContent = "×";
+
+  function createLightboxNavigationButton(direction, label, icon) {
+    const button = document.createElement("button");
+    button.className = "carousel__button";
+    button.type = "button";
+    button.dataset[direction] = "";
+    button.setAttribute("aria-label", label);
+
+    const span = document.createElement("span");
+    span.setAttribute("aria-hidden", "true");
+    span.textContent = icon;
+    button.append(span);
+    return button;
+  }
+
+  const lightboxPreviousButton = createLightboxNavigationButton("previous", "Image précédente", "‹");
+  const lightboxNextButton = createLightboxNavigationButton("next", "Image suivante", "›");
+  const lightboxImage = document.createElement("img");
+  lightboxImage.className = "project-lightbox__image";
+  lightboxImage.alt = "";
+  let lightboxIndex = 0;
+
+  lightbox.append(closeLightboxButton, lightboxPreviousButton, lightboxImage, lightboxNextButton);
+  document.body.append(lightbox);
+
+  function updateLightbox(index) {
+    lightboxIndex = Math.max(0, Math.min(index, images.length - 1));
+    const image = images[lightboxIndex];
+
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+    lightboxPreviousButton.disabled = lightboxIndex === 0;
+    lightboxNextButton.disabled = lightboxIndex === images.length - 1;
+  }
+
+  function openLightbox(index) {
+    updateLightbox(index);
+    lightbox.showModal();
+  }
+
+  images.forEach((image, index) => {
+    image.tabIndex = 0;
+    image.setAttribute("role", "button");
+    image.setAttribute("aria-haspopup", "dialog");
+    image.setAttribute("aria-label", `Afficher en grand : ${image.alt}`);
+    image.addEventListener("click", () => openLightbox(index));
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(index);
+      }
+    });
+  });
+
+  closeLightboxButton.addEventListener("click", () => lightbox.close());
+  lightboxPreviousButton.addEventListener("click", () => updateLightbox(lightboxIndex - 1));
+  lightboxNextButton.addEventListener("click", () => updateLightbox(lightboxIndex + 1));
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) lightbox.close();
+  });
+  lightbox.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      lightbox.close();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      updateLightbox(lightboxIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      updateLightbox(lightboxIndex + 1);
+    }
+  });
+
   previousButton.addEventListener("click", () => move(-1));
   nextButton.addEventListener("click", () => move(1));
   viewport.addEventListener("scroll", scheduleControlUpdate, { passive: true });
