@@ -19,22 +19,63 @@
         <desc id="house-description">Une maison dessinée au trait avec des zones cliquables sur les murs, les fenêtres et la silhouette.</desc>
         <image href="./templates/home/home%20base.jpg" x="0" y="0" width="1500" height="1000" />
 
-        <a class="hotspot" href="./templates/jaune/mediatheque.jpg" aria-label="Explorer le projet de la médiathèque depuis les murs">
-          <title>Les murs — Architecture</title>
-          <path class="hit-area" d="M184 369 396 326 396 289 584 166 952 289 952 655 1386 655 1386 817 711 817 711 671 623 671 623 817 490 817 490 601 111 601 111 834 490 834 490 817 490 601 184 601Z" />
-          <path class="hit-area" d="M584 166 584 817 490 817 490 601 396 601 396 289Z" />
+        <defs>
+          <linearGradient id="blue-window-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#4c9fbe" />
+            <stop offset="1" stop-color="#79bdd5" />
+          </linearGradient>
+          <linearGradient id="red-window-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#d98f7c" />
+            <stop offset="1" stop-color="#bd4d31" />
+          </linearGradient>
+          <clipPath id="wood-front-plane" clipPathUnits="userSpaceOnUse">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M396 289 584 166 584 817 396 817Z M396 601H490V817H396Z" />
+          </clipPath>
+          <clipPath id="giraffe-wall" clipPathUnits="userSpaceOnUse">
+            <rect x="111" y="601" width="379" height="233" />
+          </clipPath>
+          <filter id="dancer-mask-filter" color-interpolation-filters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="-0.2126 -0.7152 -0.0722 0 1
+                      -0.2126 -0.7152 -0.0722 0 1
+                      -0.2126 -0.7152 -0.0722 0 1
+                      0 0 0 1 0"
+            />
+          </filter>
+          <mask id="dancer-silhouette" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="1000" y="716" width="48" height="149" mask-type="luminance">
+            <image href="./templates/home/home%20base.jpg" x="0" y="0" width="1500" height="1000" filter="url(#dancer-mask-filter)" />
+          </mask>
+        </defs>
+
+        <a class="hotspot hotspot--wood" href="./templates/jaune/mediatheque.jpg" aria-label="Explorer le projet de la médiathèque depuis le pan de mur en bois">
+          <title>Pan de mur en bois — Architecture</title>
+          <path class="hit-area" fill-rule="evenodd" d="M396 289 584 166 584 817 396 817Z M396 601H490V817H396Z" />
+          <image class="zone-preview texture-preview" href="./templates/home/home%20bois.jpg" x="0" y="0" width="1500" height="1000" clip-path="url(#wood-front-plane)" />
         </a>
 
-        <a class="hotspot" href="./templates/bleu/bleu.jpg" aria-label="Explorer les maquettes depuis les fenêtres">
-          <title>Les fenêtres — Maquettes</title>
-          <rect class="hit-area" x="298" y="374" width="82" height="205" rx="2" />
-          <rect class="hit-area" x="742" y="382" width="372" height="153" rx="2" />
+        <a class="hotspot hotspot--giraffe" href="./templates/jaune/mediatheque.jpg" aria-label="Explorer le projet de la médiathèque depuis le mur du rez-de-chaussée">
+          <title>Mur du rez-de-chaussée — Texture girafe</title>
+          <rect class="hit-area" x="111" y="601" width="379" height="233" />
+          <image class="zone-preview texture-preview" href="./templates/home/home%20girafe.jpg" x="0" y="0" width="1500" height="1000" clip-path="url(#giraffe-wall)" />
         </a>
 
-        <a class="hotspot" href="./templates/home/home%20danse%20orange.jpg" aria-label="Explorer le travail autour du mouvement depuis la silhouette">
+        <a class="hotspot hotspot--blue-window" href="./templates/bleu/bleu.jpg" aria-label="Explorer les maquettes depuis la fenêtre en haut à gauche">
+          <title>Fenêtre en haut à gauche — Maquettes</title>
+          <rect class="hit-area" x="302" y="377" width="75" height="199" />
+          <path class="zone-preview" fill-rule="evenodd" d="M303 378H375V575H303Z M311 388H365V565H311Z" />
+        </a>
+
+        <a class="hotspot hotspot--red-window" href="./templates/bleu/bleu.jpg" aria-label="Explorer les maquettes depuis la fenêtre en haut à droite">
+          <title>Fenêtre en haut à droite — Maquettes</title>
+          <rect class="hit-area" x="748" y="388" width="361" height="141" />
+          <path class="zone-preview" fill-rule="evenodd" d="M748 388H1109V529H748Z M769 400H1092V514H769Z" />
+        </a>
+
+        <a class="hotspot hotspot--dancer" href="./templates/home/home%20danse%20orange.jpg" aria-label="Explorer le travail autour du mouvement depuis la silhouette">
           <title>La silhouette — Mouvement</title>
-          <rect class="hit-area" x="985" y="700" width="92" height="175" rx="8" />
-          <path class="hit-area" d="M1020 716 1048 738 1035 755 1034 790 1049 821 1029 836 1025 862 1011 862 1013 800 1007 770 998 741Z" />
+          <path class="hit-area" d="M1022 716 1041 736 1029 750 1029 783 1043 817 1024 831 1023 863 1016 863 1016 801 1011 779 1004 737Z" />
+          <rect class="zone-preview" x="1000" y="716" width="48" height="149" mask="url(#dancer-silhouette)" />
         </a>
       </svg>
     </main>

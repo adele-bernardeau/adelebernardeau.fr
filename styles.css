@@ -44,7 +44,7 @@ body {
 }
 
 .home-label {
-  top: 73.5%;
+  top: 75%;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Archivo Black", "Arial Black", sans-serif;
@@ -54,7 +54,7 @@ body {
   line-height: 0.9;
 }
 
-@media (min-aspect-ratio: 3 / 2) {
+@media (min-aspect-ratio: 4 / 3) {
   .home-label {
     top: 83%;
   }
@@ -73,19 +73,31 @@ body {
 
 .hotspot .hit-area {
   fill: transparent;
-  stroke: transparent;
-  stroke-width: 4;
-  transition: fill 180ms ease, stroke 180ms ease;
+  stroke: none;
+  pointer-events: all;
 }
 
-.hotspot:hover .hit-area,
-.hotspot:focus-visible .hit-area {
-  fill: rgb(199 110 53 / 13%);
-  stroke: #c76e35;
+.hotspot .zone-preview {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
 }
 
-.hotspot:focus-visible .hit-area {
-  stroke-width: 6;
+.hotspot:hover .zone-preview,
+.hotspot:focus-visible .zone-preview {
+  opacity: 1;
+}
+
+.hotspot--blue-window .zone-preview {
+  fill: url(#blue-window-gradient);
+}
+
+.hotspot--red-window .zone-preview {
+  fill: url(#red-window-gradient);
+}
+
+.hotspot--dancer .zone-preview {
+  fill: #f58220;
 }
 
 @media (prefers-reduced-motion: reduce) {
