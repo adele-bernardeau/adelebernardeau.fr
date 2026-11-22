@@ -16,9 +16,48 @@ body {
 }
 
 .house {
+  position: relative;
+  isolation: isolate;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+}
+
+.portfolio-name,
+.home-label {
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  color: #111;
+  pointer-events: none;
+}
+
+.portfolio-name {
+  top: 22.8%;
+  right: 19%;
+  font-family: "Michroma", "Eurostile", sans-serif;
+  font-size: clamp(0.7rem, 1.3vw, 1.3rem);
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.home-label {
+  top: 73.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Archivo Black", "Arial Black", sans-serif;
+  font-size: clamp(4.5rem, 8vw, 9.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+}
+
+@media (min-aspect-ratio: 3 / 2) {
+  .home-label {
+    top: 83%;
+  }
 }
 
 .house svg {
