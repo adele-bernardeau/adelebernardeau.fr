@@ -52,7 +52,6 @@ body {
 }
 
 .project-title {
-  max-width: 980px;
   margin: 0;
   font-size: clamp(1.6rem, 3.04vw, 3.2rem);
   font-weight: 400;
