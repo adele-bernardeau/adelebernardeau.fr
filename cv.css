@@ -55,57 +55,15 @@ body {
   aspect-ratio: 595 / 842;
   overflow: hidden;
   grid-template-columns: 9.24% 29.92% 30.08% 30.76%;
-  grid-template-rows: 14.37% 29.93% 55.7%;
+  grid-template-rows: 34.95% 65.05%;
   background: #fff;
   box-shadow: 0 0.6rem 2.5rem rgb(0 0 0 / 10%);
   container-type: inline-size;
 }
 
-.cv-name {
-  position: relative;
-  z-index: 1;
-  grid-column: 2 / 4;
-  grid-row: 1;
-  margin: 0;
-}
-
-.cv-name::before {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 50%;
-  background: var(--orange);
-  content: "";
-}
-
-.cv-name h1 {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  height: 100%;
-  margin: 0;
-  grid-template-columns: 1fr 1fr;
-  font-size: 2.7cqw;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-
-.cv-name__first {
-  align-self: center;
-  justify-self: end;
-  transform: translateY(18%);
-}
-
-.cv-name__last {
-  align-self: end;
-  justify-self: start;
-  margin: 0 0 0.4cqw 0.8cqw;
-}
-
 .cv-portrait {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
   background-image: url("./portfolio/CV.jpg");
   background-position: 13.2% 20.7%;
   background-size: 334.3% 334.4%;
@@ -118,7 +76,7 @@ body {
   gap: 2.5cqw;
   padding: 3.2cqw 1cqw 0;
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 2;
   text-align: center;
 }
 
@@ -152,7 +110,7 @@ body {
   align-items: center;
   padding: 1.1cqw;
   grid-column: 3;
-  grid-row: 2;
+  grid-row: 1;
   text-align: justify;
   text-align-last: center;
 }
@@ -172,7 +130,7 @@ body {
 .cv-studies {
   padding: 2.3cqw 1.7cqw;
   grid-column: 4;
-  grid-row: 2;
+  grid-row: 1;
 }
 
 .cv-studies h2,
@@ -203,7 +161,7 @@ body {
 .cv-experience {
   padding: 1.4cqw 1.6cqw;
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 2;
   overflow-wrap: anywhere;
 }
 
@@ -218,7 +176,7 @@ body {
   gap: 3.4cqw;
   padding: 4.2cqw 1cqw;
   grid-column: 4;
-  grid-row: 3;
+  grid-row: 2;
   text-align: center;
 }
 
