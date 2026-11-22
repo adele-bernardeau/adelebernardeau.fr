@@ -57,16 +57,6 @@ const galleries = {
       caption: filename,
     })),
   },
-  cv: {
-    title: "Curriculum vitæ",
-    images: [
-      {
-        src: "./portfolio/CV.jpg",
-        alt: "Curriculum vitæ d’Adèle Bernardeau",
-        caption: "CV.jpg",
-      },
-    ],
-  },
 };
 
 const dialog = document.querySelector("#lightbox");
@@ -115,7 +105,7 @@ function updateZoneHighlight() {
   highlightTimer = window.setTimeout(() => {
     highlightedZoneIndex = (highlightedZoneIndex + 1) % highlightSequence.length;
     updateZoneHighlight();
-  }, 3000);
+  }, 1000);
 }
 
 for (const zone of highlightSequence) {
