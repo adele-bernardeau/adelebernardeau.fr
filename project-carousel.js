@@ -5,7 +5,6 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
   const images = slides.map((slide) => slide.querySelector("img"));
   const previousButton = carousel.querySelector("[data-previous]");
   const nextButton = carousel.querySelector("[data-next]");
-  const status = carousel.querySelector(".carousel__status");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let activeIndex = 0;
   let updateTimer;
@@ -30,7 +29,6 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
 
     previousButton.disabled = activeIndex <= 0;
     nextButton.disabled = activeIndex >= lastFirstVisible;
-    status.textContent = `${activeIndex + 1}–${Math.min(activeIndex + visibleCount, slides.length)} / ${slides.length}`;
     prioritizeVisibleImages();
     preloadNextImage();
   }
