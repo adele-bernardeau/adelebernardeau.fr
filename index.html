@@ -48,36 +48,61 @@
           </mask>
         </defs>
 
-        <a class="hotspot hotspot--wood" href="./templates/jaune/mediatheque.jpg" aria-label="Explorer le projet de la médiathèque depuis le pan de mur en bois">
+        <a class="hotspot hotspot--wood" href="./portfolio/marron/IMG_3610.PNG" data-gallery="marron" aria-haspopup="dialog" aria-label="Ouvrir la galerie marron depuis le pan de mur en bois">
           <title>Pan de mur en bois — Architecture</title>
           <path class="hit-area" fill-rule="evenodd" d="M396 289 584 166 584 817 396 817Z M396 601H490V817H396Z" />
           <image class="zone-preview texture-preview" href="./templates/home/home%20bois.jpg" x="0" y="0" width="1500" height="1000" clip-path="url(#wood-front-plane)" />
         </a>
 
-        <a class="hotspot hotspot--giraffe" href="./templates/jaune/mediatheque.jpg" aria-label="Explorer le projet de la médiathèque depuis le mur du rez-de-chaussée">
+        <a class="hotspot hotspot--giraffe" href="./portfolio/jaune/affiche%20maquette.png" data-gallery="jaune" aria-haspopup="dialog" aria-label="Ouvrir la galerie jaune depuis le mur du rez-de-chaussée">
           <title>Mur du rez-de-chaussée — Texture girafe</title>
           <rect class="hit-area" x="111" y="601" width="379" height="233" />
           <image class="zone-preview texture-preview" href="./templates/home/home%20girafe.jpg" x="0" y="0" width="1500" height="1000" clip-path="url(#giraffe-wall)" />
         </a>
 
-        <a class="hotspot hotspot--blue-window" href="./templates/bleu/bleu.jpg" aria-label="Explorer les maquettes depuis la fenêtre en haut à gauche">
+        <a class="hotspot hotspot--blue-window" href="./portfolio/bleu/bleu.jpg" data-gallery="bleu" aria-haspopup="dialog" aria-label="Ouvrir la galerie bleue depuis la fenêtre en haut à gauche">
           <title>Fenêtre en haut à gauche — Maquettes</title>
           <rect class="hit-area" x="302" y="377" width="75" height="199" />
           <path class="zone-preview" fill-rule="evenodd" d="M303 378H375V575H303Z M311 388H365V565H311Z" />
         </a>
 
-        <a class="hotspot hotspot--red-window" href="./templates/bleu/bleu.jpg" aria-label="Explorer les maquettes depuis la fenêtre en haut à droite">
+        <a class="hotspot hotspot--red-window" href="./portfolio/rouge/DSC01580.JPG" data-gallery="rouge" aria-haspopup="dialog" aria-label="Ouvrir la galerie rouge depuis la fenêtre en haut à droite">
           <title>Fenêtre en haut à droite — Maquettes</title>
           <rect class="hit-area" x="748" y="388" width="361" height="141" />
           <path class="zone-preview" fill-rule="evenodd" d="M748 388H1109V529H748Z M769 400H1092V514H769Z" />
         </a>
 
-        <a class="hotspot hotspot--dancer" href="./templates/home/home%20danse%20orange.jpg" aria-label="Explorer le travail autour du mouvement depuis la silhouette">
+        <a class="hotspot hotspot--dancer" href="./portfolio/CV.jpg" data-gallery="cv" aria-haspopup="dialog" aria-label="Ouvrir le CV depuis la silhouette">
           <title>La silhouette — Mouvement</title>
           <path class="hit-area" d="M1022 716 1041 736 1029 750 1029 783 1043 817 1024 831 1023 863 1016 863 1016 801 1011 779 1004 737Z" />
           <rect class="zone-preview" x="1000" y="716" width="48" height="149" mask="url(#dancer-silhouette)" />
         </a>
       </svg>
     </main>
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title" aria-describedby="lightbox-count">
+      <div class="lightbox__panel">
+        <header class="lightbox__header">
+          <h2 id="lightbox-title"></h2>
+          <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Fermer la galerie">&times;</button>
+        </header>
+        <div class="lightbox__stage">
+          <button class="lightbox__navigation" id="lightbox-previous" type="button" aria-label="Image précédente">
+            <span aria-hidden="true">&larr;</span>
+          </button>
+          <figure class="lightbox__figure">
+            <img class="lightbox__image" id="lightbox-image" alt="" decoding="async">
+            <figcaption class="lightbox__caption">
+              <span id="lightbox-caption"></span>
+              <span id="lightbox-count" aria-live="polite" aria-atomic="true"></span>
+              <p class="lightbox__error" id="lightbox-error" role="alert" hidden></p>
+            </figcaption>
+          </figure>
+          <button class="lightbox__navigation" id="lightbox-next" type="button" aria-label="Image suivante">
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <script src="./lightbox.js" defer></script>
   </body>
 </html>
