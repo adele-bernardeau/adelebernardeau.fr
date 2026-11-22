@@ -84,7 +84,8 @@ body {
 }
 
 .hotspot:hover .zone-preview,
-.hotspot:focus-visible .zone-preview {
+.hotspot:focus-visible .zone-preview,
+.hotspot--auto-highlight .zone-preview {
   opacity: 1;
 }
 
