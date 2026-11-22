@@ -2,6 +2,7 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
   const viewport = carousel.querySelector(".carousel__viewport");
   const track = carousel.querySelector(".carousel__track");
   const slides = [...track.querySelectorAll(".carousel__slide")];
+  const images = slides.map((slide) => slide.querySelector("img"));
   const previousButton = carousel.querySelector("[data-previous]");
   const nextButton = carousel.querySelector("[data-next]");
   const status = carousel.querySelector(".carousel__status");
@@ -30,6 +31,8 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
     previousButton.disabled = activeIndex <= 0;
     nextButton.disabled = activeIndex >= lastFirstVisible;
     status.textContent = `${activeIndex + 1}–${Math.min(activeIndex + visibleCount, slides.length)} / ${slides.length}`;
+    prioritizeVisibleImages();
+    preloadNextImage();
   }
 
   function move(direction) {
@@ -45,6 +48,22 @@ for (const carousel of document.querySelectorAll("[data-carousel]")) {
   function scheduleControlUpdate() {
     window.clearTimeout(updateTimer);
     updateTimer = window.setTimeout(updateControls, 50);
+  }
+
+  function preloadNextImage() {
+    const nextImageIndex = activeIndex + visibleSlideCount();
+    const image = images[nextImageIndex];
+    if (!image || navigator.connection?.saveData) return;
+
+    image.fetchPriority = "low";
+    image.loading = "eager";
+  }
+
+  function prioritizeVisibleImages() {
+    for (const image of images.slice(activeIndex, activeIndex + visibleSlideCount())) {
+      image.fetchPriority = "high";
+      image.loading = "eager";
+    }
   }
 
   previousButton.addEventListener("click", () => move(-1));
